@@ -4,146 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authenticity Certificate</title>
-    <link rel="icon" href="img/exxxrk9l.png">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
             margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .header {
+        .certificate {
+            background-color: white;
+            width: 800px;
+            padding: 40px;
+            border: 1px ridge #d4af37;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .certificate .header {
             text-align: center;
-            padding: 20px 0;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
         }
-        .header img {
-            width: 50px;
+        .certificate .header img {
+            height: 50px;
         }
-        .order-info {
+        .certificate .header h1 {
+            font-size: 24px;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+        .certificate .content {
             text-align: center;
             margin-bottom: 20px;
         }
-        .order-info h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-        .certificate {
-            display: flex;
-            justify-content: space-between;
-        }
-        .certificate img {
-            width: 100%;
-            max-width: 400px;
-        }
-        .details {
-            width: 50%;
-            padding: 20px;
-        }
-        .details h2 {
+        .certificate .content h2 {
             font-size: 20px;
+            color: #d4af37;
             margin-bottom: 10px;
         }
-        .details p {
+        .certificate .content p {
+            font-size: 16px;
+            color: #333;
+        }
+        .certificate .details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .certificate .details p {
+            font-size: 14px;
             margin: 5px 0;
         }
-        .photos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .certificate .details a {
+            color: #d4af37;
+            text-decoration: none;
         }
-        .photos img {
+        .certificate .qr-code {
+            float: right;
+            margin-top: -80px;
+        }
+        .certificate .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
+        .certificate .images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .certificate .images img {
             width: 100px;
             height: 100px;
             object-fit: cover;
-        }
-        .download-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-            background-color: #d4af37;
-            color: #fff;
-            text-decoration: none;
             border-radius: 5px;
-            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        .certificate .footer {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.5;
+            text-align: justify;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="certificate-content">
+    <div class="certificate">
         <div class="header">
-            <img src="img/exxxrk9l.png" alt="Logo">
+            <a href="https://certificates.legitgrails.com">  <img src="img/exxxrk9l.png" alt="Logo"></a>
+            <h1>AUTHENTICITY CERTIFICATE</h1>
         </div>
-        <div class="order-info">
-            <h1>ORDER 45713775427909</h1>
+        <div class="content">
+            <h2>HERMÈS PURSE</h2>
+            <p>Authentication outcome: <strong style="color: #d4af37;">AUTHENTIC</strong></p>
         </div>
-        <div class="certificate">
-            <div class="details">
-                <h2>Hermès Purse</h2>
-                <p><strong>Unique code:</strong> 45713775427909</p>
-                <p><strong>Category:</strong> Bag</p>
-                <p><strong>Brand:</strong> Hermès</p>
-                <p><strong>Model:</strong> Kelly Sellier</p>
-                <p><strong>Authentication submitted:</strong> 03/10/2024 04:19 PM</p>
-                <p><strong>Outcome provided:</strong> 04/10/2024 04:19 PM</p>
-            </div>
-            <div class="photos">
-                <h2>Submitted photos:</h2><br/>
-                <div>
-                    <img src="img/11.jpeg" alt="Photo 1">
-                    <img src="img/22.jpeg" alt="Photo 2">
-                    <img src="img/33.jpeg" alt="Photo 3">
-                    <img src="img/ii.jpeg" alt="Photo 4">
-                    <img src="img/dd.jpeg" alt="Photo 5">
-                    <img src="img/ll.jpeg" alt="Photo 6">
-                    <img src="img/kk.jpeg" alt="Photo 7">
-                    <img src="img/oo.jpeg" alt="Photo 8">
-                </div>
-            </div>
+        <div class="details">
+            <p><strong>ORDER NUMBER:</strong> #109823</p>
+            <p><strong>UNIQUE CODE:</strong> 45713775427909</p>
+            <p>Search the Unique code on <a href="https://certificates.legitgrails.com">certificates.legitgrails.com</a> to verify it</p>
+        </div>
+        <div class="qr-code">
+            <img src="frame.png" alt="QR Code">
+        </div>
+        <div class="images">
+            <img src="img/22.jpeg" alt="Purse Image 1">
+            <img src="img/33.jpeg" alt²="Purse Image 2">
+            <img src="img/ll.jpeg" alt="Purse Image 3">
+        </div>
+        <div class="footer">
+            <p>*LegitGrails authentication services do not represent the opinion of any brand named directly or indirectly and should not be treated as such.</p>
+            <p>*The online preliminary examination results of your goods are the result of a genuine product identification according to the information provided by the user.</p>
+            <p>*As a third-party appraisal institution, the company does not participate in any sales disputes.</p>
+            <p>*If there is any objection to the identification results, please submit an application within 7 days for reexamination of the object identification.</p>
         </div>
     </div>
-    <button class="download-btn" onclick="downloadPDF()">Download Certificate</button>
-
-    <script>
-        async function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            const content = document.getElementById('certificate-content');
-            
-            await html2canvas(content, { scale: 2 }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 190;
-                const pageHeight = 295;
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                let heightLeft = imgHeight;
-                let position = 10;
-
-                doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-
-                while (heightLeft >= 0) {
-                    position = heightLeft - imgHeight;
-                    doc.addPage();
-                    doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
-                }
-            });
-            
-            doc.save('certificate.pdf');
-        }
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 </body>
 </html>
