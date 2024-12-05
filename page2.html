@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticity Certificate</title>
+    <link rel="icon" href="img/exxxrk9l.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header img {
+            width: 50px;
+        }
+        .order-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .order-info h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .certificate {
+            display: flex;
+            justify-content: space-between;
+        }
+        .certificate img {
+            width: 100%;
+            max-width: 400px;
+        }
+        .details {
+            width: 50%;
+            padding: 20px;
+        }
+        .details h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .photos img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #d4af37;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="certificate-content">
+        <div class="header">
+            <img src="img/exxxrk9l.png" alt="Logo">
+        </div>
+        <div class="order-info">
+            <h1>ORDER 45713775427909</h1>
+        </div>
+        <div class="certificate">
+            <div class="details">
+                <h2>Hermès Purse</h2>
+                <p><strong>Unique code:</strong> 45713775427909</p>
+                <p><strong>Category:</strong> Bag</p>
+                <p><strong>Brand:</strong> Hermès</p>
+                <p><strong>Model:</strong> Kelly Sellier</p>
+                <p><strong>Authentication submitted:</strong> 03/10/2024 04:19 PM</p>
+                <p><strong>Outcome provided:</strong> 04/10/2024 04:19 PM</p>
+            </div>
+            <div class="photos">
+                <h2>Submitted photos:</h2><br/>
+                <div>
+                    <img src="img/11.jpeg" alt="Photo 1">
+                    <img src="img/22.jpeg" alt="Photo 2">
+                    <img src="img/33.jpeg" alt="Photo 3">
+                    <img src="img/ii.jpeg" alt="Photo 4">
+                    <img src="img/dd.jpeg" alt="Photo 5">
+                    <img src="img/ll.jpeg" alt="Photo 6">
+                    <img src="img/kk.jpeg" alt="Photo 7">
+                    <img src="img/oo.jpeg" alt="Photo 8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="download-btn" onclick="downloadPDF()">Download Certificate</button>
+
+    <script>
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            const content = document.getElementById('certificate-content');
+            
+            await html2canvas(content, { scale: 2 }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 190;
+                const pageHeight = 295;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let heightLeft = imgHeight;
+                let position = 10;
+
+                doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    doc.addPage();
+                    doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+            });
+            
+            doc.save('certificate.pdf');
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
